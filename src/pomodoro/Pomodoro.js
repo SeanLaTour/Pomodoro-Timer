@@ -10,8 +10,8 @@ import FocusComponent from "./FocusComponent";
 function Pomodoro() {
   // Timer starts out paused
   const [isTimerRunning, setIsTimerRunning] = useState(false);
-  const [focusDuration, setFocusDuration] = useState(10);
-  const [breakDuration, setBreakDuration] = useState(10);
+  const [focusDuration, setFocusDuration] = useState(1500);
+  const [breakDuration, setBreakDuration] = useState(300);
   const [timeRemaining, setTimeRemaining] = useState(focusDuration);
   const [onBreak, setOnBreak] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
