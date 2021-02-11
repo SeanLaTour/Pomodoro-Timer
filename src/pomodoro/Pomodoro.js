@@ -118,7 +118,7 @@ function Pomodoro() {
     }
   };
 
-  // Return Pomodoro
+  // Return Main Pomodoro Component
   return (
     <div className="pomodoro">
       <div className="row">
