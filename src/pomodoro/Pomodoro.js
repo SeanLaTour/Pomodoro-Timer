@@ -4,8 +4,8 @@ import React, { useState } from "react";
 import classNames from "../utils/class-names";
 import useInterval from "../utils/useInterval";
 import { secondsToDuration } from "../utils/duration";
-import BreakComponent from "./BreakComponent";
-import FocusComponent from "./FocusComponent";
+import BreakComponent from "./Components/BreakComponent";
+import FocusComponent from "./Components/FocusComponent";
 
 function Pomodoro() {
   // Timer starts out paused
@@ -15,7 +15,7 @@ function Pomodoro() {
   const [timeRemaining, setTimeRemaining] = useState(focusDuration);
   const [onBreak, setOnBreak] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
-  const sound = new Audio(`./public/alarm/submarine-dive-horn.mp3`);
+  const sound = new Audio('//onlineclock.net/audio/options/default.mp3');
 
   useInterval(
     () => {
@@ -28,9 +28,8 @@ function Pomodoro() {
   function playPause() {
     setIsTimerRunning((prevState) => !prevState);
     setShowInfo(true);
-    sound.play();
   }
-
+  
   // Handle PLAY
   function play() {
     if (timeRemaining === 0) {
@@ -40,6 +39,7 @@ function Pomodoro() {
         setOnBreak(false);
       }
       if (!onBreak) {
+        
         setTimeRemaining((timeRemaining) => timeRemaining + breakDuration);
         setOnBreak(true);
       }

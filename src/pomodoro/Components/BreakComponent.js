@@ -1,6 +1,8 @@
 import React from 'react';
-import { secondsToDuration } from "../utils/duration";
+import { secondsToDuration } from "../../utils/duration";
+import ProgressBar from "./ProgressBar";
 
+// Handles the displayed time left for breaking.
 function BreakComponent({ breakDuration, timeRemaining }) {
     return (
         <div>
@@ -16,16 +18,7 @@ function BreakComponent({ breakDuration, timeRemaining }) {
           </div>
           <div className="row mb-2">
             <div className="col">
-              <div className="progress" style={{ height: "20px" }}>
-                <div
-                  className="progress-bar"
-                  role="progressbar"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                  aria-valuenow={(100 - (timeRemaining / breakDuration) * 100)}
-                  style={{ width: `${(100 - (timeRemaining / breakDuration) * 100)}%` }} 
-                />
-              </div>
+              <ProgressBar duration={breakDuration} timeRemaining={timeRemaining} />
             </div>
           </div>
         </div>

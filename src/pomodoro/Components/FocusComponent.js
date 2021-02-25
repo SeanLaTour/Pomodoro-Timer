@@ -1,6 +1,8 @@
 import React from "react";
-import { secondsToDuration } from "../utils/duration";
+import { secondsToDuration } from "../../utils/duration";
+import ProgressBar from "./ProgressBar";
 
+// Handles the displayed time left for focusing.
 function FocusComponent({ timeRemaining, focusDuration }) {
   return (
     <div>
@@ -16,18 +18,7 @@ function FocusComponent({ timeRemaining, focusDuration }) {
       </div>
       <div className="row mb-2">
         <div className="col">
-          <div className="progress" style={{ height: "20px" }}>
-            <div
-              className="progress-bar"
-              role="progressbar"
-              aria-valuemin="0"
-              aria-valuemax="100"
-              aria-valuenow={100 - (timeRemaining / focusDuration) * 100}
-              style={{
-                width: `${100 - (timeRemaining / focusDuration) * 100}%`,
-              }}
-            />
-          </div>
+          <ProgressBar duration={focusDuration} timeRemaining={timeRemaining} />
         </div>
       </div>
     </div>
